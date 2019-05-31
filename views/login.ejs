@@ -1,0 +1,21 @@
+<%- include('header') -%>
+<div class="container">
+    <div class="col col-md-6 align-self-center">
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+                    autocomplete="off" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" id="password" autocomplete="off"
+                    placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <% if (status) { %>
+        <p><%= status %></p>
+        <% } %>
+    </div>
+</div>

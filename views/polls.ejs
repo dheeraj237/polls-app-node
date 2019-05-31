@@ -1,0 +1,61 @@
+<%- include('header') -%>
+<div class="jumbotron">
+    <h1 class="display-4">Polls</h1>
+    <hr class="my-4">
+    <div class="container">
+        <div class="col-md-6 align-self-center">
+            <ul>
+                <% polls.forEach(function(poll){ %>
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <%=poll.createdTime%>
+                    </div>
+                    <div class="card-body">
+                        <form action="/votepoll/<%=poll._id%>" method="POST">
+                            <h5 class="card-title"><%=poll.pollName%></h5>
+                            <p class="card-text">Please Select any candidate.</p>
+                            <div class="row">
+                                <% poll.options.forEach(function(option){ %>
+                                <div class="form-check col-sm m-2">
+                                    <% if(poll.voters.includes(user)){ %>
+                                    <input class="form-check-input disabled" value=<%= option.candidate %> type="radio"
+                                        name="candidate" required>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        <%= option.candidate %>
+                                    </label>
+                                    <% } else{ %>
+                                    <input class="form-check-input" value=<%= option.candidate %> type="radio"
+                                        name="candidate" required>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        <%= option.candidate %>
+                                    </label>
+                                    <% } %>
+                                </div>
+                                <% }) %>
+                                <% if(poll.voters.includes(user)){ %>
+                                <p class=" col-sm m-2 text-success">Voted</p>
+                                <% } else{ %>
+                                <button class="btn btn-primary col-sm m-2" type="submit">Vote</button>
+                                <% } %>
+                            </div>
+                        </form>
+                        <!-- <form onsubmit="vote(event);" id="{{this._id}}">
+                            <h5 class="card-title"><%=poll.pollName%></h5>
+                            <p class="card-text">Please Select any candidate.</p>
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <% poll.options.forEach(function(option){ %>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="options" value="<%=option.candidate%>"
+                                        id="<%=option.candidateId%>" autocomplete="off">
+                                    <%=option.candidate%>
+                                </label>
+                                <% }); %>
+                            </div>
+                        </form> -->
+                    </div>
+                </div>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+</div>

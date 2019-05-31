@@ -1,0 +1,35 @@
+{
+  "name": "scrapping-ecomm-app",
+  "version": "1.0.0",
+  "description": "Scrapping E Comm product based on the keywords from provided platform urls and keywords.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dheerusuthar/scrapping-ecomm-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dheerusuthar/scrapping-ecomm-app/issues"
+  },
+  "homepage": "https://github.com/dheerusuthar/scrapping-ecomm-app#readme",
+  "dependencies": {
+    "async": "^3.0.1",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "express-session": "^1.16.1",
+    "mongoose": "^5.5.11",
+    "node-cron": "^2.0.3",
+    "node-persist": "^3.0.4",
+    "nodemon": "^1.19.1",
+    "path": "^0.12.7",
+    "request": "^2.88.0",
+    "uuid": "^3.3.2",
+    "zlib": "^1.0.5"
+  }
+}

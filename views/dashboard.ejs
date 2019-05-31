@@ -1,0 +1,29 @@
+<%- include('header') -%>
+<div class="jumbotron">
+    <h1 class="display-4">Vote Counts</h1>
+    <hr class="my-4">
+    <div class="container">
+        <div class="col-md-6 align-self-center">
+            <ul>
+                <% polls.forEach(function(poll){ %>
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <%=poll.createdTime%>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><%=poll.pollName%></h5>
+                        <p class="card-text">Vote Counts</p>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <% poll.options.forEach(function(option){ %>
+                            <label class="mr-2">
+                                <%=option.candidate%>&nbsp;:&nbsp;<b><%=option.votes%></b>
+                            </label>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+</div>
